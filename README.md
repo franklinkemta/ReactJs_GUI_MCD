@@ -1,1 +1,1 @@
-### I decided to build model dynamically
+### A MCD Models & Instances Builder made with ReactJs, Redux and React-Boostrap
