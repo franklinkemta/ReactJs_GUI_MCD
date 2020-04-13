@@ -5,8 +5,11 @@ export default class Appbar extends Component {
   render () {
     return (
       <div>
-        <Navbar fixed="bottom" sticky="bottom" bg="dark" variant="dark">
+        <Navbar fixed="top" sticky="top" bg="dark" variant="dark">
           <Navbar.Brand href="#">REACT MCD GUI</Navbar.Brand>
+          <Navbar.Text className="ml-auto">
+            Github : <a href="https://github.com/franklinkemta/ReactJs_GUI_MCD" target="_blank" rel="noopener noreferrer">Valessentia</a>
+          </Navbar.Text>
         </Navbar>
       </div>
     );

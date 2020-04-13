@@ -9,6 +9,9 @@ import {
 export const getModelTypes = () => dispatch => {
     dispatch(setModelTypesLoading()); // set loading to true
     // rember proxy on the package.json
+    dispatch({
+        type: GET_MODELTYPES
+    });
 }
 
 export const addModelType = (modelType) => dispatch => {

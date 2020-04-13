@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 // Redux Imports
 import { connect } from 'react-redux';
-import { addModelField, deleteModel } from "../actions/modelActions";
+import { buildModel, addModelField, deleteModel } from "../actions/modelActions";
 import { deleteModelType } from "../actions/modelTypeActions";
-import { deleteInstance } from "../actions/instanceActions";
 import PropTypes from 'prop-types';
 
 import {
@@ -63,10 +62,9 @@ class ModelBuilderItem extends Component {
 
   // Delete Model Close Button
   deleteModel = () => {
-    this.props.deleteModel(this.props.title); // delete model
-    this.props.deleteModelType(this.props.title); // delete model
-    this.props.deleteInstance(this.props.title); // delete instance
-  };
+    this.props.deleteModel(this.props.title); // delete model 
+    this.props.deleteModelType(this.props.title); // delete model 
+  }
 
   render() {
     const { fieldAddDialog } = this.state;
@@ -74,8 +72,8 @@ class ModelBuilderItem extends Component {
 
     return (
       <div>
-        <Card border="secondary" style={{ minWidth: "200px" }}>
-          <Toast onClose={this.deleteModel} style={{ width: "100%" }}>
+        <Card border="secondary">
+          <Toast onClose={this.deleteModel}>
             <Toast.Header>
               <small>
                 <b>Title</b>
@@ -181,17 +179,17 @@ ModelBuilderItem.protoTypes = {
   title: PropTypes.string.isRequired,
   fields: PropTypes.array.isRequired,
   fieldTypes: PropTypes.array.isRequired,
+  buildModel: PropTypes.func.isRequired,
   addModelField: PropTypes.func.isRequired,
   deleteModel: PropTypes.func.isRequired,
   deleteModelType: PropTypes.func.isRequired,
-  deleteInstance: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({}); // no need here
 
 export default connect(mapStateToProps, {
+  buildModel,
   addModelField,
   deleteModel,
   deleteModelType,
-  deleteInstance,
 })(ModelBuilderItem);	

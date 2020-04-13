@@ -13,7 +13,7 @@ import {
 const initialState = {
     modelTypes: [{
             core: true,
-            name: 'Number'
+            name: 'Integer'
         },
         {
             core: true,
@@ -23,11 +23,10 @@ const initialState = {
             core: true,
             name: 'Boolean'
         },
-        /* To remove
+        /* To remove, example
         {   
             core: false,
             name: 'School',
-            modelId: QPSLDKPESDDSPDSD // refer to the _id of the model in the existing models list.
         }, 
         */
     ],

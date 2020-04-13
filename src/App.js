@@ -2,7 +2,10 @@ import React, { Component } from "react";
 
 // Components
 import Appbar from "./components/Appbar";
-import DesignContainer from "./components/DesignContainer";
+import ModelContainer from "./components/ModelContainer";
+import InstanceContainer from "./components/InstanceContainer";
+
+import { Container } from 'react-bootstrap';
 
 // Add Redux Store
 import { Provider } from "react-redux";
@@ -19,7 +22,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Appbar />
-          <DesignContainer />
+          <Container>
+            <ModelContainer />
+            <InstanceContainer />
+          </Container>
         </div>
       </Provider>
     );

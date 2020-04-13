@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 
 // Redux Imports
 import { connect } from 'react-redux';
-import { getModels, addModel } from '../actions/modelActions';
-import { getModelTypes, addModelType } from '../actions/modelTypeActions';
+import { addModel } from '../actions/modelActions';
+import { addModelType } from '../actions/modelTypeActions';
 import PropTypes from 'prop-types';
 
 // Principal layout
 import {
-  Container, 
   Row,
   Button, 
   Col, 
@@ -19,17 +18,12 @@ import {
 // Components
 import ModelBuilderItem from './ModelBuilderItem';
 
-class DesignContainer extends Component {
+class ModelContainer extends Component {
 
   state = {
     titleInputValue: '',
     modelAddDialog: false,
   };
-
-  componentDidMount() {
-    this.props.getModels(); // Refresh models list
-    this.props.getModelTypes(); // Refresh modelTypes list
-  }
 
   // Create new Model
   createModel = async () => {
@@ -46,7 +40,6 @@ class DesignContainer extends Component {
         this.props.addModelType({
           core: false,
           name: createdModel.title,
-          modelId: createdModel._id,
         }); // wait the promise
 
         this.toggleModalAddDialog(); // then close the modal
@@ -69,9 +62,10 @@ class DesignContainer extends Component {
     const { modelAddDialog } = this.state;
     const { models } = this.props.model; // Model Reducer
     const { modelTypes } = this.props.modelType; // ModelType Reducer
+    
 
     return (
-      <div className="mt-1">
+      <div className="mt-2">
         <Button
           size="sm"
           variant="success"
@@ -99,36 +93,32 @@ class DesignContainer extends Component {
           </Modal.Footer>
         </Modal>
 
-        <Container>
-          <Row
-            className="justify-content-left"
-            style={{
-              marginTop: "-30px",
-              minHeight: "30vh",
-              backgroundColor: "#F2F2F2",
-              paddingBottom: "10px",
-              border: "solid 1px grey",
-            }}
-          >
-            {models.map(({ _id, title, fields }) => (
-              <Col key={_id} className="col-3 pt-2">
-                <ModelBuilderItem
-                  _id={_id}
-                  title={title}
-                  fields={fields}
-                  fieldTypes={modelTypes}
-                />
-              </Col>
-            ))}
-          </Row>
-        </Container>
+        <Row
+          className="justify-content-left"
+          style={{
+            marginTop: "-30px",
+            minHeight: "30vh",
+            backgroundColor: "#F2F2F2",
+            paddingBottom: "10px",
+            border: "solid 1px grey",
+          }}
+        >
+          {models && models.map(({ title, fields }) => (
+            <Col key={title} lg="auto" sm="auto" md="auto" xs="auto" className=" pt-2">
+              <ModelBuilderItem
+                title={title}
+                fields={fields}
+                fieldTypes={modelTypes}
+              />
+            </Col>
+          ))}
+        </Row>
       </div>
     );
   }
 }
 
-DesignContainer.protoTypes = {
-  getModels: PropTypes.func.isRequired,
+ModelContainer.protoTypes = {
   getModelTypes: PropTypes.func.isRequired,
   addModel: PropTypes.func.isRequired,
   addModelType: PropTypes.func.isRequired,
@@ -142,8 +132,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  getModels,
-  getModelTypes,
   addModel,
   addModelType,
-})(DesignContainer);	
+})(ModelContainer);	
