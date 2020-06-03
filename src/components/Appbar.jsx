@@ -8,7 +8,7 @@ export default class Appbar extends Component {
         <Navbar fixed="top" sticky="top" bg="dark" variant="dark">
           <Navbar.Brand href="#">REACT MCD GUI</Navbar.Brand>
           <Navbar.Text className="ml-auto">
-            Github : <a href="https://github.com/franklinkemta/ReactJs_GUI_MCD" target="_blank" rel="noopener noreferrer">Valessentia</a>
+            Github : <a href="https://github.com/franklinkemta/ReactJs_GUI_MCD" target="_blank" rel="noopener noreferrer">Fanklin Kemta</a>
           </Navbar.Text>
         </Navbar>
       </div>
