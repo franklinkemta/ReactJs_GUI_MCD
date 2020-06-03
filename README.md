@@ -2,6 +2,8 @@
 A Graphical UI for creating Object classes with dynamic typed attributes 
 And create runtime instances with values of the created classes.
 
+A reproduction of database design softwares in React.
+
 ### To run
 npm install && npm start
 
