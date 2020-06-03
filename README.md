@@ -3,4 +3,9 @@
 ### To run
 npm install && npm start
 
-### Ref Valessentia
+# A react js 
+
+# To Do
+# Save the created model and instances in Mongo
+# Load them on the app startup
+# Add Authentication
