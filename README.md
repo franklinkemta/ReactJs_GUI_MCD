@@ -4,6 +4,8 @@ And create runtime instances with values of the created classes.
 
 A reproduction of database design softwares in React.
 
+Used as a mini project in Job interview
+
 ### To run
 npm install && npm start
 
